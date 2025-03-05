@@ -1,5 +1,20 @@
-<h2>Wat is de hoofdstad van Frankrijk?</h2>
-<form action="/quiz" method="POST">
-    <input type="text" name="antwoord" required>
-    <button type="submit">Versturen</button>
-</form>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nieuwsberichten</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Nieuwsberichten</h1>
+    
+    <ul>
+        <% nieuwsberichten.forEach(bericht => { %>
+            <li><a href="/detail/<%= bericht.slug %>"><%= bericht.title %></a></li>
+        <% }); %>
+    </ul>
+
+    <a href="/add" class="add-button">Voeg een nieuw artikel toe</a>
+</body>
+</html> 
