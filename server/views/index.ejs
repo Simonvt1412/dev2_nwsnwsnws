@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nieuwsberichten</title>
-    <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-    <h1>Nieuwsberichten</h1>
-    
-    <ul>
-        <% nieuwsberichten.forEach(bericht => { %>
-            <li><a href="/detail/<%= bericht.slug %>"><%= bericht.title %></a></li>
-        <% }); %>
-    </ul>
+<h1><%= title %></h1>
 
-    <a href="/add" class="add-button">Voeg een nieuw artikel toe</a>
-</body>
-</html> 
+<% if( news.length === 0 ) { %>
+  <p>Er is geen nieuws beschikbaar</p>
+<% } else { %>
+    <% news.forEach((item) => { %>
+        <h2><%= item.title %></h2>
+        <p><%= item.content %></p>
+    <% }) %>
+<% } %>
