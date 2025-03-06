@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <% news.forEach(function(item) { %>
+        <article>
+            <h2><%= item.title %></h2>
+            <p><%= item.content %></p>
+        </article>
+    <% }); %>
+</body>
+</html>

@@ -1,9 +1,20 @@
+import express, { Request, Response } from "express";
+import path from "path";
 import { News, getAllNews } from "./services/newsService";
-import { Router, Request, Response } from "express";
 
-const router = Router();
-router.get("/news", async (req: Request, res: Response) => {
-  const news: News[] = await getAllNews();
+const router = express.Router();
 
-  res.render("news", { news, title: "Recent nieuws" });
+/**
+ * GET / - Laadt de homepagina
+ */
+router.get("/", (req: Request, res: Response) => {
+    res.redirect("/news");
 });
+
+router.get("/news", async (req: Request, res: Response) => {
+    const news: News[] = await getAllNews();
+  
+    res.render("index", { news, title: "Recent nieuws" });
+  });
+
+export default router;

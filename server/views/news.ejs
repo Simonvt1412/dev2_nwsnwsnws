@@ -1,0 +1,19 @@
+<!-- views/news.ejs -->
+<h1><%= title %></h1>
+
+<div class="news-container">
+  <% if (news && news.length > 0) { %>
+    <% news.forEach(item => { %>
+      <div class="news-item">
+        <h2><%= item.title %></h2>
+        <p><%= item.content %></p>
+        <% if (item.image) { %>
+          <img src="/images/<%= item.image %>" alt="<%= item.title %>">
+        <% } %>
+        <small>Published: <%= new Date(item.created_at).toLocaleDateString() %></small>
+      </div>
+    <% }); %>
+  <% } else { %>
+    <p>No news items available.</p>
+  <% } %>
+</div>
