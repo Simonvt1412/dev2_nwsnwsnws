@@ -14,7 +14,7 @@ router.get("/", (req: Request, res: Response) => {
 router.get("/news", async (req: Request, res: Response) => {
     const news: News[] = await getAllNews();
   
-    res.render("index", { news, title: "Recent nieuws" });
+    res.render("news", { news, title: "Recent nieuws" });
   });
 
 export default router;
