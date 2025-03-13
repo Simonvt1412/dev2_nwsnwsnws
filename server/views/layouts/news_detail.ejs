@@ -1,0 +1,25 @@
+<h1><%= title %></h1>
+<% if (article.image) { %>
+    <img src="<%= article.image %>" alt="<%= title %>" style="max-width: 300px;">
+<% } %>
+<p><%= article.content %></p>
+
+<h2>Comments</h2>
+<ul>
+    <% comments.forEach(comment => { %>
+        <li>
+            <strong><%= comment.author %></strong>:
+            <p><%= comment.comment %></p>
+            <small><%= comment.created_at %></small>
+        </li>
+    <% }); %>
+</ul>
+
+<h2>Voeg een Comment Toe</h2>
+<form method="POST" action="/news/<%= article.id %>/comment">
+    <label for="author">Auteur:</label>
+    <input type="text" name="author" id="author" required><br>
+    <label for="comment">Comment:</label>
+    <textarea name="comment" id="comment" required></textarea><br>
+    <button type="submit">Voeg Comment Toe</button>
+</form>

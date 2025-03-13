@@ -1,0 +1,10 @@
+<h1><%= title %></h1>
+<ul>
+    <% comments.forEach(comment => { %>
+        <li>
+            <strong><%= comment.author %></strong> op <a href="/news/<%= comment.news_id %>"><%= comment.news_title %></a>:
+            <p><%= comment.comment %></p>
+            <small><%= comment.created_at %></small>
+        </li>
+    <% }); %>
+</ul>
